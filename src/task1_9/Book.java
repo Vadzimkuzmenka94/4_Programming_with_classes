@@ -1,6 +1,10 @@
 package task1_9;
 
+import java.util.Objects;
+
 public class Book {
+
+
     {
         idGenerator++;
     }
@@ -108,5 +112,17 @@ public class Book {
         this.pages = pages;
         this.binding = binding;
         this.price = price;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id && year == book.year && pages == book.pages && price == book.price && Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(publishing, book.publishing) && Objects.equals(binding, book.binding);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, author, publishing, year, pages, binding, price);
     }
 }

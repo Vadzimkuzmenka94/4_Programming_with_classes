@@ -16,47 +16,39 @@ public class BookShop {
     void addBookToShopList(Book book) {
         bookList.add(book);
     }
+
     public String getShopName() {
         return shopName;
     }
 
-    List<Book> getListByBookYear(int diapazonStart, int diapazonEnd) {
-        List<Book> Booklist = new ArrayList<>();
-        for (Book c : Booklist) {
-            if (c.getYear() >= diapazonStart && c.getYear() <=diapazonEnd) {
-                Booklist.add(c);
+    List<Book> getListByBookYear(int diapazonStart) {
+        List<Book> list = new ArrayList<>();
+        for (Book c : bookList) {
+            if (c.getYear() >= diapazonStart) {
+                list.add(c);
             }
         }
-        return Booklist;
+        return list;
     }
 
-    List<Book> getListByBookAuthor() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите автора");
-        List<Book> Booklist = new ArrayList<>();
-        for (Book c : Booklist) {
-            if (c.getAuthor() == scanner.nextLine()) {
-                Booklist.add(c);
-            }
-            else {
-                System.out.println("нет такого автора");
+    List<Book> getListByBookAuthor(String AuthorEq) {
+        List<Book> list = new ArrayList<>();
+        for (Book c : bookList) {
+            if (c.getAuthor() == AuthorEq) {
+                list.add(c);
             }
         }
-        return Booklist;
+        return list;
     }
 
-    List<Book> getListByPublishing() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите издательство");
-        List<Book> Booklist = new ArrayList<>();
-        for (Book c : Booklist) {
-            if (c.getPublishing() == scanner.nextLine()) {
-                Booklist.add(c);
-            } else {
-                System.out.println("нет такого издательства");
+    List<Book> getListByPublishing(String Publish) {
+        List<Book> list = new ArrayList<>();
+        for (Book c : bookList) {
+            if (c.getPublishing() == Publish) {
+                list.add(c);
             }
         }
-        return Booklist;
+        return list;
     }
 
     public void setShopName(String shopName) {
