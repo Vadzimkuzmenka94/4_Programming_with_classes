@@ -5,38 +5,55 @@ package task1_8;
 import java.util.*;
 
 public class Customer {
-        int id, numbercard;
-        String surname, name, patronymic, adress, numberaccount;
-
-
-    private ArrayList<Customer> customersList = new ArrayList<>();
-
-    void addCustomerToShopList(Customer customer) {
-        customersList.add(customer);
+    {
+        idGenerator++;
     }
 
-    void getListByDiapasonCreaditCard(int diapazonStart, int diapazonEnd) {
-        List<Customer> list = new ArrayList<>();
-        for (Customer c : customersList) {
-            if (c.getNumbercard() >= diapazonStart && c.getNumbercard() <= diapazonEnd) {
-                list.add(c);
-            }
-        }
+    private static int idGenerator = 0;
+    private int id = idGenerator;
+    private String name;
+    private String surname;
+    private String patronimic;
+    private String address;
+    private int creditCardId;
+    private int bankNumberCard;
+
+    Customer(String name, String surname, String patronimic, String address, int creditCardId, int bankNumberCard) {
+        this.name = name;
+        this.surname = surname;
+        this.patronimic = patronimic;
+        this.address = address;
+        this.creditCardId = creditCardId;
+        this.bankNumberCard = bankNumberCard;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", patronimic='" + patronimic + '\'' +
+                ", address='" + address + '\'' +
+                ", creditCardId=" + creditCardId +
+                ", bankNumberCard=" + bankNumberCard +
+                '}';
+    }
+
+    public static int getIdGenerator() {
+        return idGenerator;
+    }
+
+    public static void setIdGenerator(int idGenerator) {
+        Customer.idGenerator = idGenerator;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public String getName() {
@@ -47,74 +64,44 @@ public class Customer {
         this.name = name;
     }
 
-    public String getPatronymic() {
-        return patronymic;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getPatronimic() {
+        return patronimic;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setPatronimic(String patronimic) {
+        this.patronimic = patronimic;
     }
 
-    public int getNumbercard() {
-        return numbercard;
+    public String getAddress() {
+        return address;
     }
 
-    public void setNumbercard(int numbercard) {
-        this.numbercard = numbercard;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getNumberaccount() {
-        return numberaccount;
+    public int getCreditCardId() {
+        return creditCardId;
     }
 
-    public void setNumberaccount(String numberaccount) {
-        this.numberaccount = numberaccount;
+    public void setCreditCardId(int creditCardId) {
+        this.creditCardId = creditCardId;
     }
 
-
-
-    public static class BySurnnameComparator implements Comparator<Customer> {
-            @Override
-            public int compare(Customer left, Customer right) {
-                if (left.surname == right.surname)
-                    return left.name.compareTo(right.name);
-                return left.surname.compareTo(right.surname);
-            }
-        }
-
-
-        @Override
-        public String toString() {
-            return "Customer{" +
-                    "id=" + id +
-                    ", surname='" + surname + '\'' +
-                    ", name='" + name + '\'' +
-                    ", patronymic='" + patronymic + '\'' +
-                    ", adress='" + adress + '\'' +
-                    ", numbercard='" + numbercard + '\'' +
-                    ", numberaccount='" + numberaccount + '\'' +
-                    '}';
-        }
-
-        public Customer(int id, String surname, String name, String patronymic, String adress, int numbercard, String numberaccount) {
-            this.id = id;
-            this.surname = surname;
-            this.name = name;
-            this.patronymic = patronymic;
-            this.adress = adress;
-            this.numbercard = numbercard;
-            this.numberaccount = numberaccount;
-        }
-
-
+    public int getBankNumberCard() {
+        return bankNumberCard;
     }
 
+    public void setBankNumberCard(int bankNumberCard) {
+        this.bankNumberCard = bankNumberCard;
+    }
+}
 
