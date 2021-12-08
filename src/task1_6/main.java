@@ -1,29 +1,51 @@
 package task1_6;
+import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-        time a = new time (13, 24,14);
-        time b = new time (50, 3);
-        time c = new time ();
-        a.print();
-        b.print();
-        c.print();
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        a.set_ho(25);
-        a.set_mi(45);
-        a.set_sec(24);
-        b.add_sec(50);
-        c.add_sec(80);
-        a.print();
-        b.print();
-        c.print();
-        System.out.println("@@@@@@@@@@@@@@@@@@@");
-        a.add_minute(20);
-        b.add_hours(3);
-        c.add_hours(33);
-        a.print();
-        b.print();
-        c.print();
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@");
+        Time time = new Time(2, 30, 59);
+        System.out.println(time);
+        time.setTime();
+        System.out.println(time);
+        time.addTime();
+        System.out.println(time);
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println(
+                    "Выберете пункт меню:" + "\n" +
+                            "1. Установка часов" + "\n" +
+                            "2. Установка минут" + "\n" +
+                            "3. Установка секунд" + "\n" +
+                            "4. Показать время" + "\n" +
+                            "5. выход" + "\n"
+            );
+            int choice = scanner.nextInt();
+            if (choice == 5)
+                break;
+            if (choice < 1 || choice > 5) {
+                System.out.println("выбран неправильный пункт меню, повторите ввод.");
+                continue;
+            }
+            switch (choice) {
+                case 1:
+                    time.setHour();
+                    System.out.println(time);
+                    break;
+                case 2:
+                    time.setMinute();
+                    System.out.println(time);
+                    break;
+                case 3:
+                    time.setSecond();
+                    System.out.println(time);
+                    break;
+                case 4:
+                    System.out.println(time);
+                    break;
+                case 5:
+                    break;
+            }
+        }
     }
 }
