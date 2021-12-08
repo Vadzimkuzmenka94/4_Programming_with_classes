@@ -9,7 +9,7 @@ public class shop {
     private String shopName;
     private ArrayList<Customer> customersList = new ArrayList<>();
 
-    shop(String shopName) {
+    public shop(String shopName) {
         this.shopName = shopName;
     }
 
