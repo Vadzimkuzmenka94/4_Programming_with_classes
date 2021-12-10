@@ -20,6 +20,5 @@ public class main {
         addText AddText = new addText();
         AddText.addtxt(sentence);
         System.out.println(text);
-
     }
 }
