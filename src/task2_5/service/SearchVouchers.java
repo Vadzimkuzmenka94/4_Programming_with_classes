@@ -27,7 +27,7 @@ public class SearchVouchers {
                 & list.get(i).getFood().equals(c)) {
               ArrayList <TouristVouchers> newList = new ArrayList<>();
               newList.add(list.get(i));
-            System.out.println("Идеальное предложение для Вас --->>" + newList);
+            System.out.println("Идеальное предложение для Вас ->>" + newList);
         }
     }
     }
