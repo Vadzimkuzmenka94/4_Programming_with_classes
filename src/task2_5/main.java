@@ -1,6 +1,7 @@
 package task2_5;
 
 import task2_5.entity.TouristVouchers;
+import task2_5.service.SearchVouchers;
 import task2_5.service.SortVouchers;
 
 import java.util.ArrayList;
@@ -55,6 +56,8 @@ public class main {
         System.out.println();
         Collections.sort(list, new SortVouchers());
         System.out.println(list);
+        SearchVouchers searchVouchers = new SearchVouchers();
+        searchVouchers.searchTouristVouchers(list);
 
 
 

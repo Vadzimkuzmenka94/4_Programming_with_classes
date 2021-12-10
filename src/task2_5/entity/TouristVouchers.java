@@ -1,12 +1,26 @@
 package task2_5.entity;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class TouristVouchers {
     String typeVouchers;
     String transport;
     String food;
     int days;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TouristVouchers that = (TouristVouchers) o;
+        return days == that.days && Objects.equals(typeVouchers, that.typeVouchers) && Objects.equals(transport, that.transport) && Objects.equals(food, that.food);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(typeVouchers, transport, food, days);
+    }
 
     public TouristVouchers(String typeVouchers, String transport, String food, int days) {
         this.typeVouchers = typeVouchers;
